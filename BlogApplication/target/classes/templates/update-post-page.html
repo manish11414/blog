@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog Application</title>
+</head>
+<body >
+<header>
+    <h1 style = "text-align:center">Update Post</h1>
+
+    <div align="left" class="container my-2">
+        <form th:action="@{/post/post-list}">
+            <button type="submit" name="home">Home</button>
+        </form>
+    </div>
+
+</header>
+<div id = "new-post" align="center">
+
+    <form action="#" th:action="@{/post/updatePost}" th:object="${updatePost}" method="POST">
+        <input type = "hidden" th:value="${updatePost.getPostId()}" th:field = "*{postId}">
+        <input type = "text" th:value="${updatePost.getTitle()}" th:field = "*{title}" placeholder="Title"><br><br>
+        <input type = "text" th:value= "${updatePost.getAuthor()}" th:field = "*{author}" placeholder="Author"><br><br>
+        <input type = "text" th:value="${updatePost.getTagName()}" th:field = "*{tagName}" placeholder="Tags"  ><br><br>
+        <textarea cols="50" rows="3" th:value = "${updatePost.getExcerpt()}" th:field = "*{excerpt}" placeholder="Excerpt" ></textarea><br><br>
+        <textarea cols="50" rows="20" th:value="${updatePost.getContent()}" th:field = "*{content}" placeholder="Write a blog..."></textarea><br><br>
+        <input type = "submit" value="Publish">
+    </form>
+
+</div>
+</body>
+</html>
