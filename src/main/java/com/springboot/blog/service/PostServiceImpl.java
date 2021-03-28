@@ -53,7 +53,6 @@ public class PostServiceImpl implements PostService{
         Post existPost = postRepository.findById(updatePost.getPostId()).orElse(null);
         if(existPost == null)
             return;
-       // postRepository.save(updatePost)
         existPost.setTitle(updatePost.getTitle());
         existPost.setAuthor(updatePost.getAuthor());
         existPost.setExcerpt(updatePost.getExcerpt());
